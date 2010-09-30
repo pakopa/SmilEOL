@@ -1075,7 +1075,7 @@ var replaceInstants = function() {
 				var element = getElements(embed.replace("$1", m[1]).replace("$2", links[0].textContent));
 				replaceNode(links[0].parentElement, element, links[0]);
 			} else {
-				new NodeList().
+				new NodeList();
 			}
 		}
 	}	

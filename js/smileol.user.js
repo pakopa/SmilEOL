@@ -1,14 +1,12 @@
 // ==UserScript== 
 // @name          SmilEOL
-// @version       0.4.3.4
+// @version       0.5
 // @namespace     http://www.elotrolado.net
-// @description   A\u00F1ade tus propios iconos a EOL
+// @description   Anade tus propios iconos a EOL
 // @run-at        document-end
 // @include       http://www.elotrolado.net/* 
 // @exclude              
 // ==/UserScript== 
-
-/* Initialization */
 
 // Variable para el prefijo de la clave de almacenamiento, 
 // cambiar\u00E1 en la versi\u00F3n final y ha de ser modificable.
@@ -323,186 +321,8 @@ var StaticData = {};
 
 StaticData.loadAll = function() {
 	var groups = new Array();
-	groups['SmilEOL'] = StaticData.loadSmilEOL();
-	groups['instantsfun.es'] = StaticData.loadInstants();
 	groups['EOL'] = StaticData.loadDefaultEOL();
 	return groups;
-};
-
-StaticData.loadInstants = function() {
-
-	var str = "instantsfun.es\u00A7\u00A7\u00A7"
-			+ "L:badumtss\u00A7http://instantsfun.es/badumtss\u00A7\u00A7"
-			+ "L:ballsofsteel\u00A7http://instantsfun.es/ballsofsteel\u00A7\u00A7"
-			+ "L:barrelroll\u00A7http://instantsfun.es/barrelroll\u00A7\u00A7"
-			+ "L:bazinga\u00A7http://instantsfun.es/bazinga\u00A7\u00A7"
-			+ "L:bennyhill\u00A7http://instantsfun.es/bennyhill\u00A7\u00A7"
-			+ "L:birdtheword\u00A7http://instantsfun.es/birdtheword\u00A7\u00A7"
-			+ "L:boomheadshot\u00A7http://instantsfun.es/boomheadshot\u00A7\u00A7"
-			+ "L:burned\u00A7http://instantsfun.es/burned\u00A7\u00A7"
-			+ "L:chan\u00A7http://instantsfun.es/chan\u00A7\u00A7"
-			+ "L:chanchan\u00A7http://instantsfun.es/chanchan\u00A7\u00A7"
-			+ "L:chewbacca\u00A7http://instantsfun.es/chewbacca\u00A7\u00A7"
-			+ "L:combobreaker\u00A7http://instantsfun.es/combobreaker\u00A7\u00A7"
-			+ "L:correct\u00A7http://instantsfun.es/correct\u00A7\u00A7"
-			+ "L:crickets\u00A7http://instantsfun.es/crickets\u00A7\u00A7"
-			+ "L:csi\u00A7http://instantsfun.es/csi\u00A7\u00A7"
-			+ "L:cuek\u00A7http://instantsfun.es/cuek\u00A7\u00A7"
-			+ "L:doh\u00A7http://instantsfun.es/doh\u00A7\u00A7"
-			+ "L:drama\u00A7http://instantsfun.es/drama\u00A7\u00A7"
-			+ "L:dramatic\u00A7http://instantsfun.es/dramatic\u00A7\u00A7"
-			+ "L:drumroll\u00A7http://instantsfun.es/drumroll\u00A7\u00A7"
-			+ "L:emergencyodel\u00A7http://instantsfun.es/emergencyodel\u00A7\u00A7"
-			+ "L:epic\u00A7http://instantsfun.es/epic\u00A7\u00A7"
-			+ "L:evillaugh\u00A7http://instantsfun.es/evillaugh\u00A7\u00A7"
-			+ "L:excellent\u00A7http://instantsfun.es/excellent\u00A7\u00A7"
-			+ "L:falconpunch\u00A7http://instantsfun.es/falconpunch\u00A7\u00A7"
-			+ "L:fatality\u00A7http://instantsfun.es/fatality\u00A7\u00A7"
-			+ "L:finishhim\u00A7http://instantsfun.es/finishhim\u00A7\u00A7"
-			+ "L:fuckoff\u00A7http://instantsfun.es/fuckoff\u00A7\u00A7"
-			+ "L:gong\u00A7http://instantsfun.es/gong\u00A7\u00A7"
-			+ "L:haha\u00A7http://instantsfun.es/haha\u00A7\u00A7"
-			+ "L:hallelujahlong\u00A7http://instantsfun.es/hallelujahlong\u00A7\u00A7"
-			+ "L:hallelujahshort\u00A7http://instantsfun.es/hallelujahshort\u00A7\u00A7"
-			+ "L:incorrect\u00A7http://instantsfun.es/incorrect\u00A7\u00A7"
-			+ "L:inetporn\u00A7http://instantsfun.es/inetporn\u00A7\u00A7"
-			+ "L:itsatrap\u00A7http://instantsfun.es/itsatrap\u00A7\u00A7"
-			+ "L:kamehameha\u00A7http://instantsfun.es/kamehameha\u00A7\u00A7"
-			+ "L:keyboardcat\u00A7http://instantsfun.es/keyboardcat\u00A7\u00A7"
-			+ "L:khaaan\u00A7http://instantsfun.es/khaaan\u00A7\u00A7"
-			+ "L:lalalalala\u00A7http://instantsfun.es/lalalalala\u00A7\u00A7"
-			+ "L:lazor\u00A7http://instantsfun.es/lazor\u00A7\u00A7"
-			+ "L:legendary\u00A7http://instantsfun.es/legendary\u00A7\u00A7"
-			+ "L:leroy\u00A7http://instantsfun.es/leroy\u00A7\u00A7"
-			+ "L:mario\u00A7http://instantsfun.es/mario\u00A7\u00A7"
-			+ "L:metalgearsolid\u00A7http://instantsfun.es/metalgearsolid\u00A7\u00A7"
-			+ "L:mlb\u00A7http://instantsfun.es/mlb\u00A7\u00A7"
-			+ "L:muppets\u00A7http://instantsfun.es/muppets\u00A7\u00A7"
-			+ "L:murloc\u00A7http://instantsfun.es/murloc\u00A7\u00A7"
-			+ "L:nooo\u00A7http://instantsfun.es/nooo\u00A7\u00A7"
-			+ "L:ommmm\u00A7http://instantsfun.es/ommmm\u00A7\u00A7"
-			+ "L:omnom\u00A7http://instantsfun.es/omnom\u00A7\u00A7"
-			+ "L:over9000\u00A7http://instantsfun.es/over9000\u00A7\u00A7"
-			+ "L:penny\u00A7http://instantsfun.es/penny\u00A7\u00A7"
-			+ "L:r2d2\u00A7http://instantsfun.es/r2d2\u00A7\u00A7"
-			+ "L:sadtrombone\u00A7http://instantsfun.es/sadtrombone\u00A7\u00A7"
-			+ "L:sadtuba\u00A7http://instantsfun.es/sadtuba\u00A7\u00A7"
-			+ "L:shhahh\u00A7http://instantsfun.es/shhahh\u00A7\u00A7"
-			+ "L:shutup\u00A7http://instantsfun.es/shutup\u00A7\u00A7"
-			+ "L:swanee\u00A7http://instantsfun.es/swanee\u00A7\u00A7"
-			+ "L:tada\u00A7http://instantsfun.es/tada\u00A7\u00A7"
-			+ "L:thisissparta\u00A7http://instantsfun.es/thisissparta\u00A7\u00A7"
-			+ "L:trollolol\u00A7http://instantsfun.es/trollolol\u00A7\u00A7"
-			+ "L:tumbleweed\u00A7http://instantsfun.es/tumbleweed\u00A7\u00A7"
-			+ "L:victoryff\u00A7http://instantsfun.es/victoryff\u00A7\u00A7"
-			+ "L:wakawaka\u00A7http://instantsfun.es/wakawaka\u00A7\u00A7"
-			+ "L:wilhelm\u00A7http://instantsfun.es/wilhelm\u00A7\u00A7"
-			+ "L:wololo\u00A7http://instantsfun.es/wololo\u00A7\u00A7"
-			+ "L:wrong\u00A7http://instantsfun.es/wrong\u00A7\u00A7"
-			+ "L:youarepirate\u00A7http://instantsfun.es/youarepirate\u00A7\u00A7"
-			+ "L:zas\u00A7http://instantsfun.es/zas\u00A7\u00A7"
-			+ "L:zasca\u00A7http://instantsfun.es/zasca\u00A7\u00A7"
-			+ "L:zeldaitem\u00A7http://instantsfun.es/zeldaitem\u00A7\u00A7"
-			+ "L:zeldasecret\u00A7http://instantsfun.es/zeldasecret\u00A7\u00A7"
-			+ "";
-
-	return Group.deserializePack(str);
-};
-
-StaticData.loadSmilEOL = function() {
-
-	var str = "SmilEOL\u00A7\u00A7\u00A7"
-		 + "I:NeutralFace_\u00A7http://i44.tinypic.com/1yn2up.png\u00A7[size=50]{1}[/size]\u00A7{1}\u00A7\u00A7"
-		 + "I:TrollX2_\u00A7http://i41.tinypic.com/okr23t.png\u00A7[size=50]{2}[/size]\u00A7{2}\u00A7\u00A7"
-		 + "I:Cry_\u00A7http://i40.tinypic.com/23mrk7q.png\u00A7[size=50]{3}[/size]\u00A7{3}\u00A7\u00A7"
-		 + "I:Happy_\u00A7http://i41.tinypic.com/2uekzus.png\u00A7[size=50]{4}[/size]\u00A7{4}\u00A7\u00A7"
-		 + "I:Jur_\u00A7http://i41.tinypic.com/2w2kgic.png\u00A7[size=50]{5}[/size]\u00A7{5}\u00A7\u00A7"
-		 + "I:Angry_\u00A7http://i39.tinypic.com/2a8q42r.png\u00A7[size=50]{6}[/size]\u00A7{6}\u00A7\u00A7"
-		 + "I:Tururu_\u00A7http://i39.tinypic.com/2nuhle0.png\u00A7[size=50]{7}[/size]\u00A7{7}\u00A7\u00A7"
-		 + "I:Ehm_\u00A7http://i44.tinypic.com/2zhmxy8.png\u00A7[size=50]{8}[/size]\u00A7{8}\u00A7\u00A7"
-		 + "I:brrr_\u00A7http://i42.tinypic.com/2lnfkp1.png\u00A7[size=50]{0}[/size]\u00A7{0}\u00A7\u00A7"
-		 + "I:Hitlerface_\u00A7http://i40.tinypic.com/de7ksm.png\u00A7[size=50]{9}[/size]\u00A7{9}\u00A7\u00A7"
-		 + "I:Retard_\u00A7http://i40.tinypic.com/waq2k6.png\u00A7[size=50]{10}[/size]\u00A7{10}\u00A7\u00A7"
-		 + "I:Oins_\u00A7http://i40.tinypic.com/hukal3.png\u00A7[size=50]{11}[/size]\u00A7{11}\u00A7\u00A7"
-		 + "I:Awesome_\u00A7http://i41.tinypic.com/2ynfbit.png\u00A7[size=50]{12}[/size]\u00A7{12}\u00A7\u00A7"
-		 + "I:Grr_\u00A7http://i41.tinypic.com/r0y4ic.png\u00A7[size=50]{13}[/size]\u00A7{13}\u00A7\u00A7"
-		 + "I:Gayface_\u00A7http://i40.tinypic.com/29fs6xw.png\u00A7[size=50]{14}[/size]\u00A7{14}\u00A7\u00A7"
-		 + "I:Custom1_\u00A7http://i32.tinypic.com/vy08cm.jpg\u00A7[size=50]{15}[/size]\u00A7{15}\u00A7\u00A7"
-		 + "I:Custom2_\u00A7http://i25.tinypic.com/6zmy5t.jpg\u00A7[size=50]{16}[/size]\u00A7{16}\u00A7\u00A7"
-		 + "I:Custom3_\u00A7http://i25.tinypic.com/256gwvd.jpg\u00A7[size=50]{17}[/size]\u00A7{17}\u00A7\u00A7"
-		 + "I:Custom4_\u00A7http://i26.tinypic.com/5l9zew.jpg\u00A7[size=50]{18}[/size]\u00A7{18}\u00A7\u00A7"
-		 + "I:Custom5_\u00A7http://i29.tinypic.com/mbsq5f.jpg\u00A7[size=50]{19}[/size]\u00A7{19}\u00A7\u00A7"
-		 + "I:Custom6_\u00A7http://i32.tinypic.com/50o5z5.jpg\u00A7[size=50]{20}[/size]\u00A7{20}\u00A7\u00A7"
-		 + "I:Custom7_\u00A7http://i27.tinypic.com/svs7iq.jpg\u00A7[size=50]{21}[/size]\u00A7{21}\u00A7\u00A7"
-		 + "I:Custom8_\u00A7http://i32.tinypic.com/2n0lnkg.jpg\u00A7[size=50]{22}[/size]\u00A7{22}\u00A7\u00A7"
-		 + "I:Custom9_\u00A7http://i31.tinypic.com/33e61rl.jpg\u00A7[size=50]{23}[/size]\u00A7{23}\u00A7\u00A7"
-		 + "I:Custom10_\u00A7http://i29.tinypic.com/2yw6etw.jpg\u00A7[size=50]{24}[/size]\u00A7{24}\u00A7\u00A7"
-		 + "I:Custom11_\u00A7http://i28.tinypic.com/33jqz2w.jpg\u00A7[size=50]{25}[/size]\u00A7{25}\u00A7\u00A7"
-		 + "I:Custom12_\u00A7http://i25.tinypic.com/u7qmu.jpg\u00A7[size=50]{26}[/size]\u00A7{26}\u00A7\u00A7"
-		 + "I:Custom13_\u00A7http://i31.tinypic.com/153nvb8.jpg\u00A7[size=50]{27}[/size]\u00A7{27}\u00A7\u00A7"
-		 + "I:Custom14_\u00A7http://i31.tinypic.com/wn3ia.jpg\u00A7[size=50]{28}[/size]\u00A7{28}\u00A7\u00A7"
-		 + "I:Custom15_\u00A7http://i32.tinypic.com/30hy61v.jpg\u00A7[size=50]{29}[/size]\u00A7{29}\u00A7\u00A7"
-		 + "I:Custom16_\u00A7http://i25.tinypic.com/2e55e88.jpg\u00A7[size=50]{30}[/size]\u00A7{30}\u00A7\u00A7"
-		 + "I:Custom17_\u00A7http://i28.tinypic.com/2rhr2br.jpg\u00A7[size=50]{31}[/size]\u00A7{31}\u00A7\u00A7"
-		 + "I:Custom18_\u00A7http://i28.tinypic.com/zx34eb.jpg\u00A7[size=50]{32}[/size]\u00A7{32}\u00A7\u00A7"
-		 + "I:Custom19_\u00A7http://i27.tinypic.com/wl6qvs.jpg\u00A7[size=50]{33}[/size]\u00A7{33}\u00A7\u00A7"
-		 + "I:Custom20_\u00A7http://i31.tinypic.com/xpovop.jpg\u00A7[size=50]{34}[/size]\u00A7{34}\u00A7\u00A7"
-		 + "I:Custom21_\u00A7http://i25.tinypic.com/4k7d07.jpg\u00A7[size=50]{35}[/size]\u00A7{35}\u00A7\u00A7"
-		 + "I:Troll_\u00A7http://i40.tinypic.com/zj6vxv.png\u00A7[size=50]{36}[/size]\u00A7{36}\u00A7\u00A7"
-		 + "I:Nobodycares_\u00A7http://i39.tinypic.com/ioiwpy.png\u00A7[size=50]{37}[/size]\u00A7{37}\u00A7\u00A7"
-		 + "I:Coolface_\u00A7http://i40.tinypic.com/2yw7sc9.png\u00A7[size=50]{38}[/size]\u00A7{38}\u00A7\u00A7"
-		 + "I:Fry_\u00A7http://i44.tinypic.com/4gn79f.png\u00A7[size=50]{39}[/size]\u00A7{39}\u00A7\u00A7"
-		 + "I:HA-HA_\u00A7http://i42.tinypic.com/s5wqs1.png\u00A7[size=50]{40}[/size]\u00A7{40}\u00A7\u00A7"
-		 + "I:tipoIncognito_\u00A7http://i44.tinypic.com/5x3i88.gif\u00A7[size=50]{41}[/size]\u00A7{41}\u00A7\u00A7"
-		 + "I:slowpoke_\u00A7http://i42.tinypic.com/dfwuvb.png\u00A7[size=50]{42}[/size]\u00A7{42}\u00A7\u00A7"
-		 + "I:muhaha_\u00A7http://i43.tinypic.com/2qtz9kn.png\u00A7[size=50]{43}[/size]\u00A7{43}\u00A7\u00A7"
-		 + "I:mmm1_\u00A7http://i40.tinypic.com/9s9xth.png\u00A7[size=50]{44}[/size]\u00A7{44}\u00A7\u00A7"
-		 + "I:snif_\u00A7http://i42.tinypic.com/243ndpe.png\u00A7[size=50]{45}[/size]\u00A7{45}\u00A7\u00A7"
-		 + "I:mmm2_\u00A7http://i40.tinypic.com/rle1jo.png\u00A7[size=50]{46}[/size]\u00A7{46}\u00A7\u00A7"
-		 + "I:seguroDental_\u00A7http://i42.tinypic.com/zlf0oi.gif\u00A7[size=50]{47}[/size]\u00A7{47}\u00A7\u00A7"
-		 + "I:orly_\u00A7http://i41.tinypic.com/152dog5.png\u00A7[size=50]{48}[/size]\u00A7{48}\u00A7\u00A7"
-		 + "I:miauMiau_\u00A7http://i39.tinypic.com/2hqrrps.gif\u00A7[size=50]{49}[/size]\u00A7{49}\u00A7\u00A7"
-		 + "I:LinkJijiji_\u00A7http://i43.tinypic.com/21croep.png\u00A7[size=50]{50}[/size]\u00A7{50}\u00A7\u00A7"
-		 + "I:jiXo_\u00A7http://i43.tinypic.com/xndac4.png\u00A7[size=50]{51}[/size]\u00A7{51}\u00A7\u00A7"
-		 + "I:aja_\u00A7http://i41.tinypic.com/e895sn.gif\u00A7[size=50]{52}[/size]\u00A7{52}\u00A7\u00A7"
-		 + "I:aaahhh_\u00A7http://i40.tinypic.com/20z5fkw.gif\u00A7[size=50]{53}[/size]\u00A7{53}\u00A7\u00A7"
-		 + "I:dawson_\u00A7http://i40.tinypic.com/2hphmkj.gif\u00A7[size=50]{54}[/size]\u00A7{54}\u00A7\u00A7"
-		 + "I:bobEsponja_\u00A7http://i42.tinypic.com/2znweav.png\u00A7[size=50]{55}[/size]\u00A7{55}\u00A7\u00A7"
-		 + "I:bleh_\u00A7http://i40.tinypic.com/1z13o.png\u00A7[size=50]{56}[/size]\u00A7{56}\u00A7\u00A7"
-		 + "I:moralina_\u00A7http://i41.tinypic.com/2dc7ti9.jpg\u00A7[size=50]{57}[/size]\u00A7{57}\u00A7\u00A7"
-		 + "I:Facepalm1_\u00A7http://i39.tinypic.com/1e6lix.png\u00A7[size=50]{58}[/size]\u00A7{58}\u00A7\u00A7"
-		 + "I:Facepalm2_\u00A7http://i43.tinypic.com/2d56qs.png\u00A7[size=50]{59}[/size]\u00A7{59}\u00A7\u00A7"
-		 + "I:blablabla_\u00A7http://i42.tinypic.com/fn71gy.gif\u00A7[size=50]{60}[/size]\u00A7{60}\u00A7\u00A7"
-		 + "I:roto2_\u00A7http://i40.tinypic.com/10gkbxf.gif\u00A7[size=50]{61}[/size]\u00A7{61}\u00A7\u00A7"
-		 + "I:laleche_\u00A7http://i42.tinypic.com/w2g8b4.gif\u00A7[size=50]{62}[/size]\u00A7{62}\u00A7\u00A7"
-		 + "I:jiji_\u00A7http://i40.tinypic.com/1gfzmr.png\u00A7[size=50]{63}[/size]\u00A7{63}\u00A7\u00A7"
-		 + "I:popcorn_\u00A7http://i44.tinypic.com/dm8brt.gif\u00A7[size=50]{64}[/size]\u00A7{64}\u00A7\u00A7"
-		 + "I:puf_\u00A7http://i43.tinypic.com/2rrbekz.png\u00A7[size=50]{65}[/size]\u00A7{65}\u00A7\u00A7"
-		 + "I:vaca_\u00A7http://i44.tinypic.com/30xctip.gif\u00A7[size=50]{66}[/size]\u00A7{66}\u00A7\u00A7"
-		 + "I:SabadoSabadete_\u00A7http://i43.tinypic.com/2rrbdwm.gif\u00A7[size=50]{67}[/size]\u00A7{67}\u00A7\u00A7"
-		 + "I:buitre_\u00A7http://i41.tinypic.com/11sm8p0.gif\u00A7[size=50]{68}[/size]\u00A7{68}\u00A7\u00A7"
-		 + "I:WAHT_\u00A7http://i43.tinypic.com/n50x8h.jpg\u00A7[size=50]{69}[/size]\u00A7{69}\u00A7\u00A7"
-		 + "I:Ujujum1_\u00A7http://i39.tinypic.com/2prfed4.jpg\u00A7[size=50]{70}[/size]\u00A7{70}\u00A7\u00A7"
-		 + "I:Ujujum2_\u00A7http://i44.tinypic.com/2m6sxvd.jpg\u00A7[size=50]{71}[/size]\u00A7{71}\u00A7\u00A7"
-		 + "I:Lloron_\u00A7http://i43.tinypic.com/2ueqlis.gif\u00A7[size=50]{72}[/size]\u00A7{72}\u00A7\u00A7"
-		 + "I:Sing_\u00A7http://i39.tinypic.com/o5829u.gif\u00A7[size=50]{73}[/size]\u00A7{73}\u00A7\u00A7"
-		 + "I:eaea_\u00A7http://i40.tinypic.com/znwrpx.gif\u00A7[size=50]{74}[/size]\u00A7{74}\u00A7\u00A7"
-		 + "I:ueueue_\u00A7http://i43.tinypic.com/20r1ixu.jpg\u00A7[size=50]{75}[/size]\u00A7{75}\u00A7\u00A7"
-		 + "I:nose_\u00A7http://i40.tinypic.com/9gjc6p.gif\u00A7[size=50]{76}[/size]\u00A7{76}\u00A7\u00A7"
-		 + "I:facepalm_\u00A7http://i44.tinypic.com/fc0m6b.gif\u00A7[size=50]{77}[/size]\u00A7{77}\u00A7\u00A7"
-		 + "I:melafo_\u00A7http://i41.tinypic.com/9zn9r9.jpg\u00A7[size=50]{78}[/size]\u00A7{78}\u00A7\u00A7"
-		 + "I:jajano_\u00A7http://i43.tinypic.com/o5ayvr.gif\u00A7[size=50]{79}[/size]\u00A7{79}\u00A7\u00A7"
-		 + "I:sisisi_\u00A7http://i42.tinypic.com/28bs2ut.gif\u00A7[size=50]{80}[/size]\u00A7{80}\u00A7\u00A7"
-		 + "I:ponno_\u00A7http://i43.tinypic.com/9895vl.gif\u00A7[size=50]{81}[/size]\u00A7{81}\u00A7\u00A7"
-		 + "I:Respeto_\u00A7http://i39.tinypic.com/9zqcn9.gif\u00A7[size=50]{82}[/size]\u00A7{82}\u00A7\u00A7"
-		 + "I:Bate_\u00A7http://i40.tinypic.com/vfh5xg.gif\u00A7[size=50]{83}[/size]\u00A7{83}\u00A7\u00A7"
-		 + "I:Palomitas_\u00A7http://i40.tinypic.com/104jn92.jpg\u00A7[size=50]{84}[/size]\u00A7{84}\u00A7\u00A7"
-		 + "I:Silencio_\u00A7http://i39.tinypic.com/1z6un9e.jpg\u00A7[size=50]{85}[/size]\u00A7{85}\u00A7\u00A7"
-		 + "I:melaFB_\u00A7http://i45.tinypic.com/w8py7r.jpg\u00A7[size=50]{86}[/size]\u00A7{86}\u00A7\u00A7"
-		 + "I:meloFB_\u00A7http://i49.tinypic.com/xgidj7.jpg\u00A7[size=50]{87}[/size]\u00A7{87}\u00A7\u00A7"
-		 + "I:thisisP_\u00A7http://i46.tinypic.com/2w5n9ye.jpg\u00A7[size=50]{88}[/size]\u00A7{88}\u00A7\u00A7"
-		 + "I:pedobear_\u00A7http://i47.tinypic.com/9pqds5.jpg\u00A7[size=50]{89}[/size]\u00A7{89}\u00A7\u00A7";
-	return Group.deserializePack(str);
 };
 
 StaticData.loadDefaultEOL = function() {
@@ -519,7 +339,7 @@ StaticData.loadDefaultEOL = function() {
 			+ "I:asombrado\u00A7http://www.elotrolado.net/images/smilies/eek.gif\u00A7:O\u00A7.\u00A7\u00A7"
 			+ "I:confuso\u00A7http://www.elotrolado.net/images/smilies/confused.gif\u00A7:-?\u00A7.\u00A7\u00A7"
 			+ "I:parti\u00E9ndose\u00A7http://www.elotrolado.net/images/smilies/biggrin.gif\u00A7XD\u00A7.\u00A7\u00A7"
-			+ "I:como la ni\u00F1a del exorcista\u00A7http://www.elotrolado.net/images/smilies/nuevos/vueltas.gif\u00A7[360º]\u00A7.\u00A7\u00A7"
+			+ "I:como la ni\u00F1a del exorcista\u00A7http://www.elotrolado.net/images/smilies/nuevos/vueltas.gif\u00A7[360ï¿½]\u00A7.\u00A7\u00A7"
 			+ "I:llorica\u00A7http://www.elotrolado.net/images/smilies/nuevos/triste_ani4.gif\u00A7[mamaaaaa]\u00A7.\u00A7\u00A7"
 			+ "I:a l\u00E1grima viva\u00A7http://www.elotrolado.net/images/smilies/nuevos/triste_ani3.gif\u00A7[buuuaaaa]\u00A7.\u00A7\u00A7"
 			+ "I:trist\u00F3n\u00A7http://www.elotrolado.net/images/smilies/nuevos/triste_ani2.gif\u00A7[triston]\u00A7.\u00A7\u00A7"
@@ -533,7 +353,7 @@ StaticData.loadDefaultEOL = function() {
 			+ "I:m\u00E1s risas\u00A7http://www.elotrolado.net/images/smilies/nuevos/risa_ani3.gif\u00A7[+risas]\u00A7.\u00A7\u00A7"
 			+ "I:carcajada\u00A7http://www.elotrolado.net/images/smilies/nuevos/risa_ani2.gif\u00A7[carcajad]\u00A7.\u00A7\u00A7"
 			+ "I:sonrisa\u00A7http://www.elotrolado.net/images/smilies/nuevos/risa_ani1.gif\u00A7[sonrisa]\u00A7.\u00A7\u00A7"
-			+ "I:reojo\u00A7http://www.elotrolado.net/images/smilies/nuevos/reojo.gif\u00A7¬_¬\u00A7.\u00A7\u00A7"
+			+ "I:reojo\u00A7http://www.elotrolado.net/images/smilies/nuevos/reojo.gif\u00A7ï¿½_ï¿½\u00A7.\u00A7\u00A7"
 			+ "I:pelota\u00A7http://www.elotrolado.net/images/smilies/nuevos/pelota_ani1.gif\u00A7[boing]\u00A7.\u00A7\u00A7"
 			+ "I:loco\u00A7http://www.elotrolado.net/images/smilies/nuevos/miedo.gif\u00A7[mad]\u00A7.\u00A7\u00A7"
 			+ "I:malo\u00A7http://www.elotrolado.net/images/smilies/nuevos/malo_ani1.gif\u00A7[bad]\u00A7.\u00A7\u00A7"
@@ -560,7 +380,7 @@ StaticData.loadDefaultEOL = function() {
 			+ "I:enfadado\u00A7http://www.elotrolado.net/images/smilies/nuevos2/cabreo.gif\u00A7[enfa]\u00A7.\u00A7\u00A7"
 			+ "I:cartman\u00A7http://www.elotrolado.net/images/smilies/nuevos2/cartman.gif\u00A7[cartman]\u00A7.\u00A7\u00A7"
 			+ "I:cawento\u00A7http://www.elotrolado.net/images/smilies/nuevos2/cawento.gif\u00A7cawento\u00A7.\u00A7\u00A7"
-			+ "I:cu\u00F1aaaaaooooo\u00A7http://www.elotrolado.net/images/smilies/nuevos2/cunyao.gif\u00A7:Ð\u00A7.\u00A7\u00A7"
+			+ "I:cu\u00F1aaaaaooooo\u00A7http://www.elotrolado.net/images/smilies/nuevos2/cunyao.gif\u00A7:ï¿½\u00A7.\u00A7\u00A7"
 			+ "I:decaido\u00A7http://www.elotrolado.net/images/smilies/nuevos2/decaido.gif\u00A7[decaio]\u00A7.\u00A7\u00A7"
 			+ "I:del resves\u00A7http://www.elotrolado.net/images/smilies/nuevos2/delreves.gif\u00A7[reves]\u00A7.\u00A7\u00A7"
 			+ "I:demoniaco\u00A7http://www.elotrolado.net/images/smilies/nuevos2/demonio.gif\u00A7[sati]\u00A7.\u00A7\u00A7"
@@ -1127,7 +947,7 @@ var replaceRecursive = function(node) {
 		
 		if (e.nodeType == Node.TEXT_NODE) {
 			var text = e.textContent;
-			text = text.replace(/<(.*?)>/, "&lt;$1&gt;");
+			text = text.replace(/<(.*?)>/g, "&lt;$1&gt;");
 			
 			for ( var key in smileyMapping) {
 				
@@ -1281,10 +1101,11 @@ var replaceBoxBetterEOL = function(box, c) {
 // funcion de entrada
 function scriptMain() {
 	
-	//por si a chrome no le quedan claras las directivas, pero que conste que a mí me funciona.
+	//por si a chrome no le quedan claras las directivas, pero que conste que a mï¿½ me funciona.
 	//Gracias a NeDark por este consejito
 
 	if (location.host != 'www.elotrolado.net') return;
+	if (document.getElementById("rightcontent").getElementsByTagName("h2")[0].lastChild.textContent != "Pruebas") return;
 	init();
 	
 	//Greasemonkey apesta, creedme

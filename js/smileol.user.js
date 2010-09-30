@@ -5,7 +5,8 @@
 // @description   Anade tus propios iconos a EOL
 // @run-at        document-end
 // @include       http://www.elotrolado.net/* 
-// @exclude              
+// @exclude 
+// @match		  http://www.elotrolado.net/* 
 // ==/UserScript== 
 
 // Variable para el prefijo de la clave de almacenamiento, 
@@ -1068,11 +1069,13 @@ var replaceInstants = function() {
 	var divs = getElementsByClass(null, "content");
 	for (var i = 0; i < divs.length; i++) {
 		var links = divs[i].getElementsByTagName("a");
-		for (var j = 0; j < links.length; j++) {
-			var m = rgx.exec(links[j].href);
+		while (links.length > 0) {
+			var m = rgx.exec(links[0].href);
 			if (m) {				
-				var element = getElements(embed.replace("$1", m[1]).replace("$2", links[j].textContent));
-				replaceNode(links[j].parentElement, element, links[j]);
+				var element = getElements(embed.replace("$1", m[1]).replace("$2", links[0].textContent));
+				replaceNode(links[0].parentElement, element, links[0]);
+			} else {
+				new NodeList().
 			}
 		}
 	}	

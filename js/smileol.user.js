@@ -1,6 +1,6 @@
 // ==UserScript== 
 // @name          SmilEOL
-// @version       0.5
+// @version       0.5.1
 // @namespace     http://www.elotrolado.net
 // @description   Anade tus propios iconos a EOL
 // @run-at        document-end
@@ -1069,13 +1069,13 @@ var replaceInstants = function() {
 	var divs = getElementsByClass(null, "content");
 	for (var i = 0; i < divs.length; i++) {
 		var links = divs[i].getElementsByTagName("a");
-		while (links.length > 0) {
-			var m = rgx.exec(links[0].href);
+		for (var j = 0; j < links.length;) {
+			var m = rgx.exec(links[j].href);
 			if (m) {				
-				var element = getElements(embed.replace("$1", m[1]).replace("$2", links[0].textContent));
-				replaceNode(links[0].parentElement, element, links[0]);
+				var element = getElements(embed.replace("$1", m[1]).replace("$2", links[j].textContent));
+				replaceNode(links[j].parentNode, element, links[j]);				
 			} else {
-				new NodeList();
+				j++;
 			}
 		}
 	}	

@@ -1,6 +1,6 @@
 // ==UserScript== 
 // @name          SmilEOL
-// @version       0.5.1
+// @version       0.5.2
 // @namespace     http://www.elotrolado.net
 // @description   Anade tus propios iconos a EOL
 // @run-at        document-end
@@ -948,7 +948,7 @@ var replaceRecursive = function(node) {
 		
 		if (e.nodeType == Node.TEXT_NODE) {
 			var text = e.textContent;
-			text = text.replace(/<(.*?)>/g, "&lt;$1&gt;");
+			text = text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
 			
 			for ( var key in smileyMapping) {
 				

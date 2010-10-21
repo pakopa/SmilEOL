@@ -1014,7 +1014,7 @@ var getElementsByClass = function(parentNode, className) {
 
 	parentNode = (parentNode == null) ? document : parentNode;
 
-	var elements = document.getElementsByTagName("*");
+	var elements = parentNode.getElementsByTagName("*");
 	var out = new Array();
 
 	for ( var i = 0; i < elements.length; i++) {

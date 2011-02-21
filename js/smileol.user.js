@@ -1,6 +1,6 @@
 // ==UserScript== 
 // @name          SmilEOL
-// @version       0.5.2
+// @version       0.5.3
 // @namespace     http://www.elotrolado.net
 // @description   Anade tus propios iconos a EOL
 // @run-at        document-end
@@ -340,7 +340,7 @@ StaticData.loadDefaultEOL = function() {
 			+ "I:asombrado\u00A7http://www.elotrolado.net/images/smilies/eek.gif\u00A7:O\u00A7.\u00A7\u00A7"
 			+ "I:confuso\u00A7http://www.elotrolado.net/images/smilies/confused.gif\u00A7:-?\u00A7.\u00A7\u00A7"
 			+ "I:parti\u00E9ndose\u00A7http://www.elotrolado.net/images/smilies/biggrin.gif\u00A7XD\u00A7.\u00A7\u00A7"
-			+ "I:como la ni\u00F1a del exorcista\u00A7http://www.elotrolado.net/images/smilies/nuevos/vueltas.gif\u00A7[360�]\u00A7.\u00A7\u00A7"
+			+ "I:como la ni\u00F1a del exorcista\u00A7http://www.elotrolado.net/images/smilies/nuevos/vueltas.gif\u00A7[360º]\u00A7.\u00A7\u00A7"
 			+ "I:llorica\u00A7http://www.elotrolado.net/images/smilies/nuevos/triste_ani4.gif\u00A7[mamaaaaa]\u00A7.\u00A7\u00A7"
 			+ "I:a l\u00E1grima viva\u00A7http://www.elotrolado.net/images/smilies/nuevos/triste_ani3.gif\u00A7[buuuaaaa]\u00A7.\u00A7\u00A7"
 			+ "I:trist\u00F3n\u00A7http://www.elotrolado.net/images/smilies/nuevos/triste_ani2.gif\u00A7[triston]\u00A7.\u00A7\u00A7"
@@ -354,7 +354,7 @@ StaticData.loadDefaultEOL = function() {
 			+ "I:m\u00E1s risas\u00A7http://www.elotrolado.net/images/smilies/nuevos/risa_ani3.gif\u00A7[+risas]\u00A7.\u00A7\u00A7"
 			+ "I:carcajada\u00A7http://www.elotrolado.net/images/smilies/nuevos/risa_ani2.gif\u00A7[carcajad]\u00A7.\u00A7\u00A7"
 			+ "I:sonrisa\u00A7http://www.elotrolado.net/images/smilies/nuevos/risa_ani1.gif\u00A7[sonrisa]\u00A7.\u00A7\u00A7"
-			+ "I:reojo\u00A7http://www.elotrolado.net/images/smilies/nuevos/reojo.gif\u00A7�_�\u00A7.\u00A7\u00A7"
+			+ "I:reojo\u00A7http://www.elotrolado.net/images/smilies/nuevos/reojo.gif\u00A7¬_¬\u00A7.\u00A7\u00A7"
 			+ "I:pelota\u00A7http://www.elotrolado.net/images/smilies/nuevos/pelota_ani1.gif\u00A7[boing]\u00A7.\u00A7\u00A7"
 			+ "I:loco\u00A7http://www.elotrolado.net/images/smilies/nuevos/miedo.gif\u00A7[mad]\u00A7.\u00A7\u00A7"
 			+ "I:malo\u00A7http://www.elotrolado.net/images/smilies/nuevos/malo_ani1.gif\u00A7[bad]\u00A7.\u00A7\u00A7"
@@ -381,7 +381,7 @@ StaticData.loadDefaultEOL = function() {
 			+ "I:enfadado\u00A7http://www.elotrolado.net/images/smilies/nuevos2/cabreo.gif\u00A7[enfa]\u00A7.\u00A7\u00A7"
 			+ "I:cartman\u00A7http://www.elotrolado.net/images/smilies/nuevos2/cartman.gif\u00A7[cartman]\u00A7.\u00A7\u00A7"
 			+ "I:cawento\u00A7http://www.elotrolado.net/images/smilies/nuevos2/cawento.gif\u00A7cawento\u00A7.\u00A7\u00A7"
-			+ "I:cu\u00F1aaaaaooooo\u00A7http://www.elotrolado.net/images/smilies/nuevos2/cunyao.gif\u00A7:�\u00A7.\u00A7\u00A7"
+			+ "I:cu\u00F1aaaaaooooo\u00A7http://www.elotrolado.net/images/smilies/nuevos2/cunyao.gif\u00A7:\u00D0\u00A7.\u00A7\u00A7"
 			+ "I:decaido\u00A7http://www.elotrolado.net/images/smilies/nuevos2/decaido.gif\u00A7[decaio]\u00A7.\u00A7\u00A7"
 			+ "I:del resves\u00A7http://www.elotrolado.net/images/smilies/nuevos2/delreves.gif\u00A7[reves]\u00A7.\u00A7\u00A7"
 			+ "I:demoniaco\u00A7http://www.elotrolado.net/images/smilies/nuevos2/demonio.gif\u00A7[sati]\u00A7.\u00A7\u00A7"
@@ -1014,7 +1014,7 @@ var getElementsByClass = function(parentNode, className) {
 
 	parentNode = (parentNode == null) ? document : parentNode;
 
-	var elements = parentNode.getElementsByTagName("*");
+	var elements = document.getElementsByTagName("*");
 	var out = new Array();
 
 	for ( var i = 0; i < elements.length; i++) {

@@ -1,12 +1,12 @@
 // ==UserScript== 
 // @name          SmilEOL
-// @version       0.5.3
+// @version       0.5.5
 // @namespace     http://www.elotrolado.net
 // @description   Anade tus propios iconos a EOL
 // @run-at        document-end
-// @include       http://www.elotrolado.net/* 
+// @include       http://*.elotrolado.net/* 
 // @exclude 
-// @match		  http://www.elotrolado.net/* 
+// @match	  http://*.elotrolado.net/*
 // ==/UserScript== 
 
 // Variable para el prefijo de la clave de almacenamiento, 
@@ -958,9 +958,20 @@ var replaceRecursive = function(node) {
 					rgx = new RegExp("(\\s|^|>)" + escKey + "(\\s|$|<)", "g");
 					//Exploit fixing
 					
-					text = text.replace(rgx, "$1" + smileyMapping[key] + "$2");
+					// Optimización sugerida por G1t4n0
+					if (text.match(rgx)) {					
+						var imgObj = smileyMapping[key];
+						var img = new Image();
+						img.src = imgObj.url;
+						img.alt = imgObj.title;
+						img.title = imgObj.title;					
+	
+						text = text.replace(rgx, "$1" + getHTML(img) + "$2");
+					}
+					
 				} catch (e) {
 					// Callarse like a whore.
+//					console.error(e);
 				}
 			}
 
@@ -996,11 +1007,7 @@ var getTranslationMap = function(groups) {
 
 			if (e instanceof ImageObject) {
 				if (e.keyword != ".") {
-					var img = new Image();
-					img.src = e.url;
-					img.alt = e.title;
-					img.title = e.title;
-					out[e.keyword] = getHTML(img);
+					out[e.keyword] = e;
 				}
 			}
 		}
@@ -1064,7 +1071,7 @@ var replaceNode = function(target, news, old) {
 var replaceInstants = function() {
 	
 	var rgx = /http:\/\/(?:www.)?instantsfun\.es\/(\w*)/;
-	var embed = '<embed src="http://www.instantsfun.es/swf/$1.swf" width="50" height="50" quality="mid" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" wmode="transparent" title="$2"></embed>';
+	var embed = '<embed src="http://www.instantsfun.es/media/flash/$1.swf" width="50" height="50" quality="mid" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" wmode="transparent" title="$2"></embed>';
 	
 	var divs = getElementsByClass(null, "content");
 	for (var i = 0; i < divs.length; i++) {
@@ -1104,10 +1111,10 @@ var replaceBoxBetterEOL = function(box, c) {
 // funcion de entrada
 function scriptMain() {
 	
-	//por si a chrome no le quedan claras las directivas, pero que conste que a m� me funciona.
+	//por si a chrome no le quedan claras las directivas, pero que conste que a m\u00ED me funciona.
 	//Gracias a NeDark por este consejito
 
-	if (location.host != 'www.elotrolado.net') return;
+	if (!location.host.match(/\bwww\d*\.elotrolado\.net\b/)) return;
 	if (document.getElementById("rightcontent").getElementsByTagName("h2")[0].lastChild.textContent != "Pruebas") return;
 	init();
 	
@@ -1129,7 +1136,7 @@ function scriptMain() {
 		}
 	}
 
-	if (location.href.match(/http:\/\/www.elotrolado.net\/hilo.*/)) {
+	if (location.href.match(/http:\/\/www\d*\.elotrolado\.net\/hilo.*/)) {
 		setTimeout(function() {
 			replaceInstants();
 			// experimental: ejecutar as\u00EDncronamente		
